@@ -1,7 +1,15 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
+    <File Path="nuget.config" />
     <File Path="README.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
   </Folder>
   <Folder Name="/src/" />
+  <Folder Name="/src/DiscountSync/" />
+  <Folder Name="/src/InvoiceSync/">
+    <Project Path="src/InvoiceSync/InvoiceSync.Contracts/InvoiceSync.Contracts.csproj" />
+    <Project Path="src/InvoiceSync/InvoiceSync.Mcp/InvoiceSync.Mcp.csproj" />
+  </Folder>
 </Solution>

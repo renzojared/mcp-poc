@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\InvoiceSync.Contracts\InvoiceSync.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>
