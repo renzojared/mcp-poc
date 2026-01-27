@@ -416,3 +416,21 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# JetBrains Rider
+*.sln.iml
+
+# Rider
+.idea
+
+# Mac OS
+.DS_Store
+
+# EF Core
+Migrations/
+
+# Variables de entorno (locales / personales)
+.env
+
+# Overrides locales de Docker Compose
+compose.override.yaml
