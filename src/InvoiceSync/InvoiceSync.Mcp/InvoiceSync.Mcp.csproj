@@ -5,6 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="ModelContextProtocol" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\InvoiceSync.Contracts\InvoiceSync.Contracts.csproj" />
     </ItemGroup>
 
