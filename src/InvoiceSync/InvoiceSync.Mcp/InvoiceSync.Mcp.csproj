@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,6 +12,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\InvoiceSync.Contracts\InvoiceSync.Contracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>
