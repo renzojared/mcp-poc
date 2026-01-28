@@ -1,0 +1,6 @@
+﻿services:
+  invoice-sync-mcp:
+    image: ${DOCKER_REGISTRY-}invoice-sync-mcp
+    build:
+      context: .
+      dockerfile: src/InvoiceSync/InvoiceSync.Mcp/Dockerfile
