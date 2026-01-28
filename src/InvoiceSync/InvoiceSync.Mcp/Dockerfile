@@ -5,6 +5,9 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY ["Directory.Build.props", "./"]
+COPY ["Directory.Packages.props", "./"]
+COPY ["nuget.config", "./"]
 COPY ["src/InvoiceSync/InvoiceSync.Mcp/InvoiceSync.Mcp.csproj", "src/InvoiceSync/InvoiceSync.Mcp/"]
 COPY ["src/InvoiceSync/InvoiceSync.Contracts/InvoiceSync.Contracts.csproj", "src/InvoiceSync/InvoiceSync.Contracts/"]
 RUN dotnet restore "src/InvoiceSync/InvoiceSync.Mcp/InvoiceSync.Mcp.csproj"
