@@ -1,5 +1,6 @@
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace InvoiceSync.Contracts.Services;
 
@@ -11,14 +12,15 @@ internal sealed class InvoiceSyncApiClient(HttpClient httpClient) : IInvoiceSync
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
         PropertyNameCaseInsensitive = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        Converters = { new JsonStringEnumConverter() }
     };
 
     /// <inheritdoc />
     public async Task<EventProcessSummary?> GetEventByIdAsync(Guid eventId,
         CancellationToken cancellationToken = default)
     {
-        var response = await httpClient.GetAsync($"/api/v1/event/{eventId}", cancellationToken);
+        var response = await httpClient.GetAsync($"api/v1/event/{eventId}", cancellationToken);
 
         if (response.StatusCode == System.Net.HttpStatusCode.NotFound) return null;
 
@@ -36,7 +38,7 @@ internal sealed class InvoiceSyncApiClient(HttpClient httpClient) : IInvoiceSync
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(eventType);
 
-        var url = $"/api/v1/subscription/{Uri.EscapeDataString(eventType)}?PageNumber={pageNumber}&PageSize={pageSize}";
+        var url = $"api/v1/subscription/{Uri.EscapeDataString(eventType)}?PageNumber={pageNumber}&PageSize={pageSize}";
         var response = await httpClient.GetAsync(url, cancellationToken);
 
         response.EnsureSuccessStatusCode();

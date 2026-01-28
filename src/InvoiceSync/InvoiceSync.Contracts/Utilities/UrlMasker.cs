@@ -13,7 +13,7 @@ public static class UrlMasker
     /// <returns>The masked URL string.</returns>
     public static string Mask(string? url)
     {
-        if (string.IsNullOrWhiteSpace(url)) return "***";
+        if (string.IsNullOrWhiteSpace(url) || url.StartsWith('/')) return "***";
 
         return Uri.TryCreate(url, UriKind.Absolute, out var uri)
             ? $"{uri.Scheme}://{uri.Host}/***"
