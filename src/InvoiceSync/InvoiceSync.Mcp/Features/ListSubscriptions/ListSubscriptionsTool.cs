@@ -1,6 +1,5 @@
 using InvoiceSync.Contracts.Services;
 using InvoiceSync.Contracts.Utilities;
-using ModelContextProtocol.Server;
 
 namespace InvoiceSync.Mcp.Features.ListSubscriptions;
 
@@ -13,6 +12,9 @@ public class ListSubscriptionsTool(IInvoiceSyncApiClient apiClient)
     [McpServerTool(
         Name = "list_subscriptions",
         Title = "Lists active subscriptions for a specific event type with pagination support")]
+    [Description("Retrieves all active subscriptions configured for a specific event type. " +
+                 "Returns endpoint domains (masked for security), retry policies, timeout settings, and clause counts. " +
+                 "Supports pagination for large result sets. Use this to discover which endpoints are subscribed to receive specific event types.")]
     public async Task<ListSubscriptionsResponse> ListSubscriptionsAsync(
         string eventType,
         int pageNumber = 1,
@@ -52,7 +54,6 @@ public class ListSubscriptionsTool(IInvoiceSyncApiClient apiClient)
             Subscriptions = subscriptions
         };
     }
-
 }
 
 /// <summary>

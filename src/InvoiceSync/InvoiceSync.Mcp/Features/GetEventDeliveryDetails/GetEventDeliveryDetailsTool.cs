@@ -1,6 +1,5 @@
 using InvoiceSync.Contracts.Services;
 using InvoiceSync.Contracts.Utilities;
-using ModelContextProtocol.Server;
 
 namespace InvoiceSync.Mcp.Features.GetEventDeliveryDetails;
 
@@ -14,6 +13,9 @@ public class GetEventDeliveryDetailsTool(IInvoiceSyncApiClient apiClient)
         Name = "get_event_delivery_details",
         Title =
             "Gets detailed delivery attempt information for a specific event, with masked endpoint URLs for security")]
+    [Description("Retrieves detailed information about all delivery attempts for a specific event. " +
+                 "Shows endpoint domains (masked for security), delivery status, attempt counts, and timestamps. " +
+                 "Use this to troubleshoot delivery failures or verify which endpoints received the event successfully.")]
     public async Task<GetEventDeliveryDetailsResponse> GetEventDeliveryDetailsAsync(
         Guid eventId,
         CancellationToken cancellationToken = default)
@@ -44,7 +46,6 @@ public class GetEventDeliveryDetailsTool(IInvoiceSyncApiClient apiClient)
             Deliveries = deliveries
         };
     }
-
 }
 
 /// <summary>

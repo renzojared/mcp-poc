@@ -1,5 +1,4 @@
 using InvoiceSync.Contracts.Services;
-using ModelContextProtocol.Server;
 
 namespace InvoiceSync.Mcp.Features.GetEventStatus;
 
@@ -12,6 +11,10 @@ public class GetEventStatusTool(IInvoiceSyncApiClient apiClient)
     [McpServerTool(
         Name = "get_event_status",
         Title = "Gets the processing status and basic information for a specific event by ID")]
+    [Description(
+        "Retrieves the current processing status, delivery statistics, and basic metadata for a specific event. " +
+        "Returns event type, application name, request ID, overall status, and delivery success/failure counts. " +
+        "Use this to check if an event was processed successfully and how many deliveries succeeded or failed.")]
     public async Task<GetEventStatusResponse> GetEventStatusAsync(
         Guid eventId,
         CancellationToken cancellationToken = default)
