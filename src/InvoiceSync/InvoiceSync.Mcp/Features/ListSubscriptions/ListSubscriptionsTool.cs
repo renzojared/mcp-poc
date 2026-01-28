@@ -7,6 +7,7 @@ namespace InvoiceSync.Mcp.Features.ListSubscriptions;
 /// <summary>
 /// MCP tool for listing subscriptions by event type.
 /// </summary>
+[McpServerToolType]
 public class ListSubscriptionsTool(IInvoiceSyncApiClient apiClient)
 {
     [McpServerTool(

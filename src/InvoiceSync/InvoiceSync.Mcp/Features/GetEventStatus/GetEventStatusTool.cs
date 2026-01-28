@@ -6,6 +6,7 @@ namespace InvoiceSync.Mcp.Features.GetEventStatus;
 /// <summary>
 /// MCP tool for getting event status information.
 /// </summary>
+[McpServerToolType]
 public class GetEventStatusTool(IInvoiceSyncApiClient apiClient)
 {
     [McpServerTool(

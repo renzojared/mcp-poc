@@ -1,20 +1,16 @@
 ﻿using InvoiceSync.Contracts;
-using InvoiceSync.Mcp.Features.GetEventDeliveryDetails;
-using InvoiceSync.Mcp.Features.GetEventStatus;
-using InvoiceSync.Mcp.Features.ListSubscriptions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 var builder = Host.CreateApplicationBuilder(args);
+
+builder.Logging.AddConsole(options => options.LogToStandardErrorThreshold = LogLevel.Trace);
 
 builder.Services
     .AddInvoiceSyncApiClient()
     .AddMcpServer()
     .WithStdioServerTransport()
-    .WithTools<GetEventStatusTool>()
-    .WithTools<GetEventDeliveryDetailsTool>()
-    .WithTools<ListSubscriptionsTool>();
+    .WithToolsFromAssembly();
 
-var app = builder.Build();
-
-await app.RunAsync();
+await builder.Build().RunAsync();

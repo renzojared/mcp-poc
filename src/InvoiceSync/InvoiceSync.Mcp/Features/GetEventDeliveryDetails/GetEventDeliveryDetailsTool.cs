@@ -7,6 +7,7 @@ namespace InvoiceSync.Mcp.Features.GetEventDeliveryDetails;
 /// <summary>
 /// MCP tool for getting detailed delivery information for an event.
 /// </summary>
+[McpServerToolType]
 public class GetEventDeliveryDetailsTool(IInvoiceSyncApiClient apiClient)
 {
     [McpServerTool(
