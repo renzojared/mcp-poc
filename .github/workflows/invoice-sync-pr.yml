@@ -8,6 +8,7 @@ on:
       - 'Directory.Build.props'
       - 'Directory.Packages.props'
       - '.github/workflows/invoice-sync-pr.yml'
+      - '.github/workflows/invoice-sync-release.yml'
 
 jobs:
   validate:
