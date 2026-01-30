@@ -4,7 +4,7 @@ Collection of Model Context Protocol (MCP) server implementations using Docker.
 
 ## Available MCPs
 
-- **[Invoice Sync MCP](./docs/invoice-sync-mcp.md)** - Event Status, Delivery Details, Subscriptions
+- **[Invoice Sync MCP](./docs/mcp-invoice-sync.md)** - Event Status, Delivery Details, Subscriptions
 
 ## Documentation
 
