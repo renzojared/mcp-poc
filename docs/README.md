@@ -40,7 +40,7 @@ MCP servers use stdio, making traditional debugging difficult:
 
 ## Available MCPs
 
-- **[Invoice Sync MCP](./invoice-sync-mcp.md)** - Invoice Sync integration
+- **[Invoice Sync MCP](./mcp-invoice-sync.md)** - Invoice Sync integration
 
 ## Resources
 
